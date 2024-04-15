@@ -67,4 +67,7 @@ This project is a RESTful API implementation of a Library Management System usin
 
 
 ## Running the app
-- you can simple run the application from any suitable ide then testing using postman or any equivalent agent on port 8080 configuring environment variables of database name, username, and password of the database connection 
+- you can simple run the application from any suitable ide then testing using postman or any equivalent agent on port 8080 configuring environment variables of database name, username, and password of the database connection
+
+# Note 
+I have attached the DDL statements and Swagger API documentation 
