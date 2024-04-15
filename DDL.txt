@@ -1,0 +1,47 @@
+-- Table for Book
+CREATE TABLE Book (
+                      ID INT AUTO_INCREMENT PRIMARY KEY,
+                      title VARCHAR(255) NOT NULL,
+                      author VARCHAR(255) NOT NULL,
+                      publication_year INT,
+                      ISBN VARCHAR(20) UNIQUE
+);
+
+-- Table for Patron
+CREATE TABLE Patron (
+                        ID INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(255) NOT NULL,
+                        contact_information VARCHAR(255)
+);
+
+-- Table for Borrowing Record
+CREATE TABLE Borrowing_Record (
+                                  ID INT AUTO_INCREMENT PRIMARY KEY,
+                                  book_id INT,
+                                  patron_id INT,
+                                  borrow_date DATE,
+                                  return_date DATE,
+                                  FOREIGN KEY (book_id) REFERENCES Book(ID) ON DELETE CASCADE,
+                                  FOREIGN KEY (patron_id) REFERENCES Patron(ID) ON DELETE CASCADE
+);
+
+
+-- some simple insert statements to populate the tables
+INSERT INTO Book (ID, title, author, publication_year, ISBN)
+VALUES
+    (1, 'To Kill a Mockingbird', 'Harper Lee', 1960, '9780061120084'),
+    (2, '1984', 'George Orwell', 1949, '9780451524935'),
+    (3, 'The Great Gatsby', 'F. Scott Fitzgerald', 1925, '9780743273565');
+
+-- Inserting data into Patron table
+INSERT INTO Patron (ID, name, contact_information)
+VALUES
+    (1, 'John Doe', 'john.doe@example.com'),
+    (2, 'Jane Smith', 'jane.smith@example.com'),
+    (3, 'Alice Johnson', NULL);
+
+INSERT INTO Borrowing_Record (ID, book_id, patron_id, borrow_date, return_date)
+VALUES
+    (1, 1, 1, '2024-04-10', '2024-04-17'),
+    (2, 2, 2, '2024-04-12', '2024-04-19'),
+    (3, 3, 3, '2024-04-14', '2024-04-24');
