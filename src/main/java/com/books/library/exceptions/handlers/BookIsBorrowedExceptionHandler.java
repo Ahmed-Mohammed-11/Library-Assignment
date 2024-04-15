@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+@RestControllerAdvice
 public class BookIsBorrowedExceptionHandler {
     @ExceptionHandler(BookIsBorrowedException.class)
     public ResponseEntity<String> handleBookIsBorrowed(BookIsBorrowedException e) {
