@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class PatronNotFoundExceptionHandler {
     @ExceptionHandler(PatronNotFoundException.class)
-    public ResponseEntity<String> handleBookNotFoundException(PatronNotFoundException e) {
+    public ResponseEntity<String> handlePatronNotFoundException(PatronNotFoundException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
     }
-
-
 }

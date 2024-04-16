@@ -21,7 +21,7 @@ public class BookRepositoryImplementation implements BookRepository {
     @Override
     @Transactional
     public Integer insert(Book entity) {
-        String sql = "INSERT INTO Book (title, author, publication_year, ISBN) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Book (title, author, publication_year, isbn) VALUES (?, ?, ?, ?)";
         return jdbcTemplate.update(sql, entity.getTitle(), entity.getAuthor(), entity.getPublicationYear(), entity.getIsbn());
     }
 
@@ -41,7 +41,7 @@ public class BookRepositoryImplementation implements BookRepository {
     @Override
     @Transactional
     public void update(Book entity) {
-        String sql = "UPDATE Book SET title = ?, author = ?, publication_year = ?, ISBN = ? WHERE id = ?";
+        String sql = "UPDATE Book SET title = ?, author = ?, publication_year = ?, isbn = ? WHERE id = ?";
         jdbcTemplate.update(sql, entity.getTitle(), entity.getAuthor(), entity.getPublicationYear(), entity.getIsbn(), entity.getId());
     }
 

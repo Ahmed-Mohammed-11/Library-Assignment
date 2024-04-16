@@ -1,7 +1,6 @@
 package com.books.library.daos.implementations;
 
 import com.books.library.daos.repositories.PatronRepository;
-import com.books.library.entities.Book;
 import com.books.library.entities.Patron;
 import jakarta.transaction.Transactional;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -29,7 +28,6 @@ public class PatronRepositoryImplementation implements PatronRepository {
     @Override
     public Optional<Patron> findById(Integer id) {
         String sql = "SELECT * FROM Patron WHERE id = ?";
-        Patron patron = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Patron.class), id);
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Patron.class), id).stream().findFirst();
     }
 
