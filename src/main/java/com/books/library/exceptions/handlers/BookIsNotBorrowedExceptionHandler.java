@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class BookIsNotBorrowedExceptionHandler {
     @ExceptionHandler(BookIsNotBorrowedException.class)
     public ResponseEntity<String> handleBookIsNotBorrowed(BookIsNotBorrowedException e) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
     }
 }
