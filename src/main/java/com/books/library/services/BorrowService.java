@@ -5,6 +5,8 @@ import com.books.library.daos.implementations.BorrowRepositoryImplementation;
 import com.books.library.daos.implementations.PatronRepositoryImplementation;
 import com.books.library.exceptions.exceptions.BookIsBorrowedException;
 import com.books.library.exceptions.exceptions.BookIsNotBorrowedException;
+import com.books.library.exceptions.exceptions.BookNotFoundException;
+import com.books.library.exceptions.exceptions.PatronNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import static com.books.library.constants.ResponseMessageConstants.*;
