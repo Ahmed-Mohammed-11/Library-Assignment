@@ -32,7 +32,7 @@ public class PatronControllers {
         return ResponseEntity.status(HttpStatus.OK).body(patron);
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<String> addPatron(@Valid @RequestBody PatronDTO patron) {
         patronService.insertPatron(patron);
         return ResponseEntity.status(HttpStatus.CREATED).body(PATRON_ADDED_SUCCESSFULLY);
